@@ -38,7 +38,7 @@ module.exports = function (token, endpoint, data, method) {
             'Authorization': 'Bearer ' + token
         },
         method: (method ? method : "GET"),
-        uri: 'https://publicapi.giffgaff.com/giffgaff-api' + endpoint
+        uri: 'https://publicapi.giffgaff.com/gateway/money/v1/members/me' + endpoint
     };
     return qRequest(options);
 };

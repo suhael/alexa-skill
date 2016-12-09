@@ -16,34 +16,38 @@ var handlers = {
     'LaunchRequest': function () {
         this.emit(':ask', 'Welcome to ' + SKILL + '. How can I help?', REPROMPT);
     },
-    'Money.CreditScore': function () {
-        if (this.event.session.user.accessToken) {
+    'CreditScore': function () {
+        // if (this.event.session.user.accessToken) {
             var alexa = this;
-            giffgaff(alexa.event.session.user.accessToken, '/profile')
+            giffgaff(alexa.event.session.user.accessToken, '/credit-file/pages/credit-report')
                     .done(function (data) {
-                        alexa.emit(':tell', '<p>Your credit score is ' + data.score + '.</p>', REPROMPT);
+                        alexa.emit(':tell', '<p>Your credit score is ' + data.updatedOn + '.</p>', REPROMPT);
                     });
-        } else {
-            this.emit(':tellWithLogInToAccount', 'You\'ll need to log in to ' + SKILL + ' using the Alexa app before I can give you this information.');
-        }
+        // } else {
+        //     this.emit(':tellWithLogInToAccount', 'You\'ll need to log in to ' + SKILL + ' using the Alexa app before I can give you this information.');
+        // }
     },
-    'Money.RecommendProduct': function () {
+    'RecommendProduct': function () {
         this.emit(':tell', 'Hello World')
     },
-    'Money.ReadArticle': function () {
+    'ReadArticle': function () {
         // Find a recommended article based on credit score, read title and description to user. Tie this to 'Get me money fit'
+        // /credit-file/pages/credit-report
+    //    get the data.atricles[].category
     },
-    'Money.CheckForRetailLoan': function () {
+    'CheckForRetailLoan': function () {
         // Call gg_getLoans and indicate if user has retail loan
+    //    /loans/latest
     },
-    'Money.CheckForHandsetLoan': function () {
+    'CheckForHandsetLoan': function () {
         // Call gg_getLoans and indicate if user has handset loan
     },
-    'Money.GetLoanBalance': function () {
+    'GetLoanBalance': function () {
         // Return balance of all outstanding loans
     },
-    'Money.GetLoanPaymentSchedule': function () {
+    'GetLoanPaymentSchedule': function () {
         // Return next scheduled payment across all loans
+    //   loans/latest
     },
     // Standard Intents - https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents
     'AMAZON.HelpIntent': function () {
