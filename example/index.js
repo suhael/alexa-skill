@@ -21,7 +21,7 @@ var handlers = {
             var alexa = this;
             giffgaff(alexa.event.session.user.accessToken, '/credit-file/pages/credit-report')
                     .done(function (data) {
-                        alexa.emit(':tell', '<p>Your credit score is ' + data.updatedOn + '.</p>', REPROMPT);
+                        alexa.emit(':tell', '<p>Your credit score is ' + data.date + '.</p>', REPROMPT);
                     });
         // } else {
         //     this.emit(':tellWithLogInToAccount', 'You\'ll need to log in to ' + SKILL + ' using the Alexa app before I can give you this information.');

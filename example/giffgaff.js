@@ -34,11 +34,10 @@ module.exports = function (token, endpoint, data, method) {
     var options = {
         body: JSON.stringify(data),
         headers: {
-            'Accept': 'application/json',
-            'Authorization': 'Bearer ' + token
+            'Accept': 'application/json'
         },
         method: (method ? method : "GET"),
-        uri: 'https://publicapi.giffgaff.com/gateway/money/v1/members/me' + endpoint
+        uri: 'http://date.jsontest.com/'
     };
     return qRequest(options);
 };
