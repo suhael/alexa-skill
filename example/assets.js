@@ -19,6 +19,7 @@ generateUtterances('CreditScore', '{give me |tell me |what is |what\'s }my credi
 generateUtterances('CreditScoreLastUpdate', 'when was {it|my credit score} {last updated|updated}');
 generateUtterances('CreditScoreExists', 'Do I have a credit report from giffgaff');
 generateUtterances('RecommendProduct', '{recommend me |advise me on |tell me about }a product');
+generateUtterances('ReadArticle', 'I want to get money fit');
 generateUtterances('ReadArticle', '{get |make }me money fit');
 generateUtterances('CheckForRetailLoan', 'Do I have a retail loan');
 generateUtterances('CheckForHandsetLoan', 'Do I have a handset loan');
