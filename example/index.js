@@ -17,23 +17,24 @@ var handlers = {
         this.emit(':ask', 'Welcome to ' + SKILL + '. How can I help?', REPROMPT);
     },
     'CreditScore': function () {
-        // if (this.event.session.user.accessToken) {
-            var alexa = this;
-            giffgaff(alexa.event.session.user.accessToken, '/credit-file/pages/credit-report')
-                    .done(function (data) {
-                        alexa.emit(':tell', '<p>Your credit score is ' + data.updatedOn + '.</p>', REPROMPT);
-                    });
-        // } else {
-        //     this.emit(':tellWithLogInToAccount', 'You\'ll need to log in to ' + SKILL + ' using the Alexa app before I can give you this information.');
-        // }
+        var alexa = this;
+        giffgaff('',
+            '/credit-file/pages/credit-report')
+                .done(function (data) {
+                    alexa.emit(':tell', '<p>Your credit score is ' + data.updatedOn + '.</p>', REPROMPT);
+                });
     },
     'RecommendProduct': function () {
         this.emit(':tell', 'Hello World')
     },
     'ReadArticle': function () {
-        // Find a recommended article based on credit score, read title and description to user. Tie this to 'Get me money fit'
-        // /credit-file/pages/credit-report
-    //    get the data.atricles[].category
+        var alexa = this;
+        giffgaff('',
+            '/credit-file/pages/credit-report')
+            .done(function (data) {
+                alexa.emit(':tell', '<p>Your first article is ' + data.articles[0].title + '.</p>', REPROMPT);
+                alexa.emit(':tell', '<p>' + data.articles[0].summary + '</p>', REPROMPT);
+            });
     },
     'CheckForRetailLoan': function () {
         // Call gg_getLoans and indicate if user has retail loan
