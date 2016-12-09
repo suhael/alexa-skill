@@ -1,0 +1,16 @@
+# OS
+.DS_Store
+
+# IDE
+.idea/
+*.iml
+
+# Node
+**/node_modules
+
+# Application
+example/intents.json
+example/utterances.txt
+example/*-cma.js
+example/*.zip
+server.log

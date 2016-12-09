@@ -1,0 +1,19 @@
+html
+    head
+        title giffgaff Log In
+    body
+        h1 Log in to giffgaff
+        div=error
+        form(id="login" enctype="application/x-www-form-urlencoded" action="/authenticate" method="post")
+            input(type="hidden" name="state" value=state)
+            input(type="hidden" name="redirect_uri" value=redirect_uri)
+            p
+                label(for="username") Member name or mobile number
+                br
+                input(type="text" id="username" name="username" maxlength="25")
+            p
+                label(for="password") Password
+                br
+                input(type="password" id="password" name="password")
+            p
+                input(type="submit" value="Log in")

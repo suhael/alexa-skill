@@ -1,0 +1,11 @@
+{
+    "crypto": {
+        "algorithm": "aes-256-ctr",
+        "password": ""
+    },
+    "giffgaff": {
+        "api": "https://publicapi.giffgaff.com/giffgaff-api",
+        "client_id": "",
+        "client_secret": ""
+    }
+}
