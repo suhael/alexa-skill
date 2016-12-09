@@ -16,6 +16,8 @@ var generateUtterances = function (intent, template) {
 };
 
 generateUtterances('CreditScore', '{give me |tell me |what is |what\'s }my credit score');
+generateUtterances('CreditScoreLastUpdate', 'when was {it|my credit score} {last updated|updated}');
+generateUtterances('CreditScoreExists', 'Do I have a credit report from giffgaff');
 generateUtterances('RecommendProduct', '{recommend me |advise me on |tell me about }a product');
 generateUtterances('ReadArticle', '{get |make }me money fit');
 generateUtterances('CheckForRetailLoan', 'Do I have a retail loan');

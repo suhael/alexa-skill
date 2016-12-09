@@ -6,7 +6,7 @@ const
     REPROMPT = 'For assistance just say \'Help Me\'.',
     SKILL = 'Osmosis';
 
-exports.handler = function(event, context){
+exports.handler = function (event, context) {
     var alexa = alexaSDK.handler(event, context);
     alexa.registerHandlers(handlers);
     alexa.execute();
@@ -14,15 +14,26 @@ exports.handler = function(event, context){
 
 var handlers = {
     'LaunchRequest': function () {
-        this.emit(':ask', 'Welcome to ' + SKILL + '. How can I help?', REPROMPT);
+        this.emit(':ask', 'Welcome to ' + SKILL + '. We\'ll get you money fit in no time', REPROMPT);
     },
     'CreditScore': function () {
+        this.emit(':tell', 'I\'m sorry, but we can\'t supply your credit score directly. Please log in to your giffgaff account to view your free credit report')
+    },
+    'CreditScoreExists': function () {
         var alexa = this;
-        giffgaff('',
-            '/credit-file/pages/credit-report')
-                .done(function (data) {
-                    alexa.emit(':tell', '<p>Your credit score is ' + data.updatedOn + '.</p>', REPROMPT);
-                });
+        giffgaff('', '/credit-file/pages/credit-report')
+            .done(function (data) {
+                alexa.emit(':tell', '<p>Yes, you have a credit report with giffgaff! Please log in to see your full credit report.</p>', REPROMPT);
+            }).catch(function () {
+            alexa.emit(':tell', '<p>You don\t currently have a credit report. Sign up for your free credit report at https://www.giffgaff.com/money</p>', REPROMPT);
+        });
+    },
+    'CreditScoreLastUpdate': function () {
+        var alexa = this;
+        giffgaff('', '/credit-file/pages/credit-report')
+            .done(function (data) {
+                alexa.emit(':tell', '<p>Your credit score was last updated at: ' + data.updatedOn + '</p>', REPROMPT);
+            });
     },
     'RecommendProduct': function () {
         this.emit(':tell', 'Hello World')
@@ -38,7 +49,7 @@ var handlers = {
     },
     'CheckForRetailLoan': function () {
         // Call gg_getLoans and indicate if user has retail loan
-    //    /loans/latest
+        //    /loans/latest
     },
     'CheckForHandsetLoan': function () {
         // Call gg_getLoans and indicate if user has handset loan
@@ -48,7 +59,7 @@ var handlers = {
     },
     'GetLoanPaymentSchedule': function () {
         // Return next scheduled payment across all loans
-    //   loans/latest
+        //   loans/latest
     },
     // Standard Intents - https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents
     'AMAZON.HelpIntent': function () {
