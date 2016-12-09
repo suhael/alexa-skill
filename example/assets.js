@@ -15,6 +15,13 @@ var generateUtterances = function (intent, template) {
     }
 };
 
+generateUtterances('Money.CreditScore', '{give me |tell me |what is |what\'s }my credit score');
+generateUtterances('Money.RecommendProduct', '{recommend me |advise me on |tell me about }a product');
+generateUtterances('Money.ReadArticle', '{get |make }me money fit');
+generateUtterances('Money.CheckForRetailLoan', 'Do I have a retail loan?');
+generateUtterances('Money.CheckForHandsetLoan', 'Do I have a handset loan?');
+generateUtterances('Money.GetLoanBalance', '{give me |tell me |what is |what\'s }my loan {balance|amount}');
+generateUtterances('Money.GetLoanPaymentSchedule', '{when is |tell me when |when\'s }my next payment due');
 generateUtterances('BalanceIntent', '{|account |current }balance');
 generateUtterances('BalanceIntent', '{give me |tell me |what is |what\'s }my {|account |current }balance');
 
