@@ -17,6 +17,7 @@ var generateUtterances = function (intent, template) {
 
 generateUtterances('BalanceIntent', '{|account |current }balance');
 generateUtterances('BalanceIntent', '{give me |tell me |what is |what\'s }my {|account |current }balance');
+generateUtterances('FCRIntent', '{give me |tell me |what is |what\'s }my credit score');
 
 intents.push('AMAZON.HelpIntent');
 intents.push('AMAZON.StopIntent');

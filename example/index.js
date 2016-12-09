@@ -4,7 +4,7 @@ var alexaSDK = require('alexa-sdk'),
 
 const
     REPROMPT = 'For assistance just say \'Help Me\'.',
-    SKILL = 'gif gaff'; // for pronunciation
+    SKILL = 'Osmosis'; // for pronunciation
 
 exports.handler = function(event, context){
     var alexa = alexaSDK.handler(event, context);
@@ -19,12 +19,9 @@ var handlers = {
     'FCRIntent': function () {
         if (this.event.session.user.accessToken) {
             var alexa = this;
-            giffgaff(alexa.event.session.user.accessToken, '/profile')
-                    .done(function (data) {
-                        alexa.emit(':tell', '<p>Your credit score is ' + data.score + '.</p>', REPROMPT);
-                    });
+            alexa.emit(':tell', '<p>Your credit score is 200.</p>', REPROMPT);
         } else {
-            this.emit(':tellWithLogInToAccount', 'You\'ll need to log in to ' + SKILL + ' using the Alexa app before I can give you this information.');
+            this.emit(':tellWithLinkAccountCard', 'You\'ll need to log in to ' + SKILL + ' using the Alexa app before I can give you this information.');
         }
     },
     'BalanceIntent': function () {
