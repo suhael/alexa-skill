@@ -36,7 +36,7 @@ var handlers = {
         giffgaff('', '/credit-file/pages/credit-report')
             .then(function (data) {
                 alexa.emit(':tell', '<p>Your credit score was last updated at: ' + data.updatedOn + '</p>', REPROMPT);
-            }, function () { alexa.emit(':tell', 'Oops! Something went wrong.', REPROMPT)});
+            }, function () { alexa.emit(':tell', 'Oops! Something went wrong.', REPROMPT);});
     },
     'RecommendProduct': function () {
         var alexa = this;
@@ -44,7 +44,7 @@ var handlers = {
             '/credit-file/pages/credit-report')
             .then(function (data) {
                 alexa.emit(':tell', '<p>Given your credit score, I\'d recommend ' + data.products[0].title + '.</p>', REPROMPT);
-            }, function () { alexa.emit(':tell', 'Oops! Something went wrong.', REPROMPT)});
+            }, function () { alexa.emit(':tell', 'Oops! Something went wrong.', REPROMPT);});
     },
     'ReadArticle': function () {
         var alexa = this;
@@ -53,7 +53,7 @@ var handlers = {
             .then(function (data) {
                 alexa.emit(':tell', '<p>Maybe some research would help. Given your credit score, maybe you should read: ' + data.articles[0].title + '.</p>', REPROMPT);
                 alexa.emit(':tell', '<p>' + data.articles[0].summary + '</p>', REPROMPT);
-            }, function () { alexa.emit(':tell', 'Oops! Something went wrong.', REPROMPT)});
+            }, function () { alexa.emit(':tell', 'Oops! Something went wrong.', REPROMPT);});
     },
     'CheckForRetailLoan': function () {
         var alexa = this;
