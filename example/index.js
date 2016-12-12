@@ -56,18 +56,20 @@ var handlers = {
             }, alexa.emit(':tell', 'Oops! Something went wrong.', REPROMPT));
     },
     'CheckForRetailLoan': function () {
-        // Call gg_getLoans and indicate if user has retail loan
-        //    /loans/latest
+        var alexa = this;
+        alexa.emit(':tell', '<p>You have had a loan since 11th January 2017.</p>', REPROMPT);
     },
     'CheckForHandsetLoan': function () {
-        // Call gg_getLoans and indicate if user has handset loan
+        var alexa = this;
+        alexa.emit(':tell', '<p>You do not have a handset loan</p>', REPROMPT);
     },
     'GetLoanBalance': function () {
-        // Return balance of all outstanding loans
+        var alexa = this;
+        alexa.emit(':tell', '<p>Your loan balance is £2123.</p>', REPROMPT);
     },
     'GetLoanPaymentSchedule': function () {
-        // Return next scheduled payment across all loans
-        //   loans/latest
+        var alexa = this;
+        alexa.emit(':tell', '<p>Your next payment is due on 21st December, for £15.</p>', REPROMPT);
     },
     // Standard Intents - https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents
     'AMAZON.HelpIntent': function () {
